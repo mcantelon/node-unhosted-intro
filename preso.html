@@ -550,7 +550,13 @@ $ npm publish</pre>
             Full screen and kiosk modes
           </li>
           <li>
-            Can define native pull-down menus
+            Native UI functionality:
+            <ul>
+              <li>Pull-down menus</li>
+              <li>File dialogs</li>
+              <li>Minimize to tray</li>
+              <li>Clipboard access</li>
+            </ul>
           </li>
           <li>
             Removes same-origin policy limits
@@ -567,15 +573,17 @@ $ npm publish</pre>
         </h3>
         <ul>
           <li>
-            HTML, CSS, JavaScript, and media go in project
-            directory
+            Put your files in a project directory:
           </li>
         </ul>
         <img class="centered" src='images/node-webkit-app-dir.png' />
         <ul>
           <li>
-            Project directory also contains <code>package.json</code> "manifest"
-            file
+            Use npm to install needed modules in <code>node_modules</code>
+            subdirectory
+          </li>
+          <li>
+            Put <code>package.json</code> "manifest" in directory
           </li>
         </ul>
       </article>
@@ -606,6 +614,88 @@ $ npm publish</pre>
           </li>
         </ul>
       </article>
+
+      <article>
+        <h3>
+          Example HTML entry page
+        </h3>
+        <section>
+        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Window title goes here&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    var markdown = require('markdown').markdown;
+    document.write(markdown.toHTML("Hello **World**!"));
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+        </section>
+        <ul>
+          <li>
+            Note use of Node's <code>require</code> function to
+            enable add-on functionality 
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          In-app navigation
+        </h3>
+        <ul>
+          <li>
+            No need to run an HTTP server!
+          </li>
+          <li>
+            <code>window.location</code> will change page:
+          </li>
+        </ul>
+        <section>
+<pre>window.location = 'views/settings.html';</pre>
+        </section>
+        <ul>
+          <li>
+            You can stay on one HTML page and use
+            AJAX to replace regions of the page
+          </li>
+          <li>
+            Use libraries like JQuery or
+            Angular as with conventional client-side
+            development
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Packaging a node-webkit application
+        </h3>
+        <ul>
+          <li>
+            Create ZIP archive of project folder:
+          </li>
+        </ul>
+
+        <section>
+<pre>zip -r my_application.nw *</pre>
+        </section>
+
+        <ul>
+          <li>
+            Rename ZIP file to have an <code>.nw</code> extension
+          </li>
+          <li>
+            The resulting ZIP file can be executed by the node-webkit runtime:
+          </li>
+        </ul>
+
+        <section>
+<pre>/path/to/node-webkit my_application.nw</pre>
+        </section>
+      </article>
+
 
 <!--
       <article class='smaller'>
@@ -1392,6 +1482,7 @@ flow.series([
               Online support
         </table>
       </article>
+-->
  
       <article>
         <h1>
@@ -1404,10 +1495,9 @@ flow.series([
         </div>
         <div>
           <span>Slides:</span>
-          <a href='http://mikecantelon.com/talks/tcjug'>mikecantelon.com/talks/tcjug</a>
+          <a href='http://mikecantelon.com/talks/devnexus'>mikecantelon.com/talks/devnexus</a>
         </div>
       </article>
--->
 
     </section>
 
