@@ -295,6 +295,157 @@
         <img class='centered' src='images/googlerefine.png'>
       </article>
 
+       <article>
+        <h1>
+          So what does programming in Node look like?
+        </h1>
+      </article>
+
+      <article>
+        <h3>Installing Node is easy</h3>
+
+        <ul>
+          <li>
+            Standalone installers for Windows and Mac OS X
+          </li>
+          <li>
+            Installers available at <a href='http://nodejs.org/#download'>nodejs.org/#download</a>
+          </li>
+          <li>
+            On Mac, with homebrew, you can "brew install node"
+          </li>
+          <li>
+            Compiling on Mac OS X (with XCode installed) and 
+            Linux is also straightforward
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Node's REPL
+        </h3>
+
+        <p>After installing Node, you can start the REPL by entering the following into a command-line prompt.</p>
+
+        <section>
+        <pre style="background-color: black; color: white">
+$ node
+> &#9632;</pre>
+        </section>
+
+        <p>Then enter the following to make Node say its first words. CTRL-d to exit.</p>
+
+        <section>
+        <pre style="background-color: black; color: white">
+> console.log('Hello World!');
+Hello World!
+> &#9632;</pre>
+        </section>
+
+      </article>
+
+      <article>
+        <h3>
+          Running Node scripts
+        </h3>
+
+        <p>Node scripts require no boilerplate for displaying output.</p>
+
+        <p>Place the following code in a file named "hello_world.js".</p>
+
+        <section>
+        <pre>
+console.log('Hello World!');</pre>
+        </section>
+
+        <p>You can then run this script by entering the following into the command-line.</p>
+
+        <section>
+        <pre style="background-color: black; color: white">
+$ node hello_world.js</pre>
+        </section>
+
+      </article>
+  
+      <article>
+        <h3>
+          hello_web.js
+        </h3>
+
+        <p>In code below we require the "http" module.</p>
+
+        <p>We then create a server with it that will listen for HTTP requests on TCP/IP port 8888.</p>
+
+        <p>We use an anonymous function to specify what should be done with each request.</p>
+
+        <section>
+        <pre>
+var http = require('http');
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello Web!\n');
+}).listen(8888);</pre>
+        </section>
+
+      </article>
+ 
+       <article>
+        <h1>
+          Extending Node using modules
+        </h1>
+      </article>
+
+      <article>
+       <h3>
+          The Node package manager is super useful
+        </h3>
+        <ul>
+          <li>
+            NPM comes bundled with Windows and Mac OS X standalone installers
+          </li>
+          <li>
+            Can install modules into an application or make them available globally
+          </li>
+          <li>
+            Application-specific installation of modules allows you to install specific versions
+          </li>
+          <li>
+            Global install is useful for installing command-line tools written using Node
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Installing and publishing modules with NPM
+        </h3>
+
+        <p>An example installation of a module:</p>
+
+        <section>
+        <pre style="background-color: black; color: white">
+$ npm install socket.io</pre>
+        </section>
+
+        <p>When publishing a module, you must include a "package.json" file that specifies the module's name, version, etc.</p>
+
+        <p>An example of publishing a module:</p>
+
+        <section>
+        <pre style="background-color: black; color: white">
+$ npm publish</pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>
+          Search npm via npmjs.org
+        </h3>
+      <img class='centered' style='margin-top: 50px' src='images/searchnpm.png'>
+      </article>
+
       <article>
         <h1>
           Creating an unhosted app using Node
@@ -364,7 +515,97 @@
         </ul>
       </article>
 
+      <article>
+        <h3>
+          Improving UI using node-webkit
+        </h3>
+        <img class='centered' src='images/node_plus_webkit.png' style='margin-top: 2em' />
+        <ul>
+          <li>
+            node-webkit is a runtime that integrates a
+            customized version of Webkit with Node
+          </li>
+          <li>
+            Originally created by Intel
+          </li>
+        </ul>
+      </article>
 
+      <article>
+        <h3>
+          Example: Sputnik RSS Reader
+        </h3>
+        <img class='centered' src='images/sputnik.jpg' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          node-webkit features
+        </h3>
+        <ul>
+          <li>
+            Cross-platform
+          </li>
+          <li>
+            Full screen and kiosk modes
+          </li>
+          <li>
+            Can define native pull-down menus
+          </li>
+          <li>
+            Removes same-origin policy limits
+          </li>
+          <li>
+            Code for a single browser version
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Creating node-webkit applications
+        </h3>
+        <ul>
+          <li>
+            HTML, CSS, JavaScript, and media go in project
+            directory
+          </li>
+        </ul>
+        <img class="centered" src='images/node-webkit-app-dir.png' />
+        <ul>
+          <li>
+            Project directory also contains <code>package.json</code> "manifest"
+            file
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Example <code>package.json</code> file
+        </h3>
+        <section>
+        <pre>{
+  "name": "hello",
+  "main": "index.html",
+  "window": {
+    "toolbar": false,
+    "width": 800,
+    "height": 600
+  }
+}</pre>
+        </section>
+        <ul>
+          <li>
+            <code>"main"</code> element specifies initial HTML page to
+            display
+          </li>
+          <li>
+            <code>"window"</code> element specifies initial window
+            state
+          </li>
+        </ul>
+      </article>
 
 <!--
       <article class='smaller'>
