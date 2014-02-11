@@ -42,7 +42,7 @@
         <p>
           Mike Cantelon
           <br>
-          February ??, 2014
+          February 25, 2014
         </p>
       </article>
  
@@ -66,6 +66,9 @@
           <li>
             Develop open source digital archiving software
             for Artefactual Systems
+          </li>
+          <li>
+            Thanks to Apex Systems and the Devnexus organizers
           </li>
         </ul>
       </article>
@@ -115,7 +118,7 @@
 
       <article>
         <h1>
-          What are unhosted apps? Why create them?
+          What are unhosted apps?
         </h1>
       </article>
      
@@ -145,6 +148,40 @@
 
       <article>
         <h3>
+          Three basic types of unhosted apps
+        </h3>
+        <ul>
+          <li>
+            Browser only (HTML5)
+          </li>
+          <li>
+            Browser and server (running locally)
+          </li>
+          <li>
+            Special runtime (integrating browser and server)
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Access network if needed</h3>
+        <img class='centered' src='images/federated.png' style="margin-top:2em" /> 
+        <ul>
+          <li>App instances share information</li>
+          <li>Conceptually peer-to-peer</li>
+          <li>Message passing between app instances</li> 
+          <li>Ideally messages are encrypted</li>
+        </ul>
+      </article>
+
+      <article>
+        <h1>
+          Why create unhosted apps?
+        </h1>
+      </article>
+
+      <article>
+        <h3>
           Advantages of unhosted apps over hosted apps
         </h3>
         <ul>
@@ -155,7 +192,7 @@
             Full access to workstation data and peripherals
           </li>
           <li>
-            No network required
+            Minimize dependence on network
           </li>
           <li>
             No hosting costs
@@ -197,10 +234,10 @@
           <li>
             As apps move to the web, however, the web is increasingly perceived as "normal", if not native
           </li>
-          <li>
+          <!-- <li>
             Operating systems are incorporating HTML5 for native applications: Windows 8, Ubuntu, Chrome OS,
             Firefox OS
-          </li>
+          </li> -->
         </ul>
       </article>
 
@@ -454,27 +491,41 @@ $ npm publish</pre>
 
       <article>
         <h3>
-          Application development
+          You'll need to...
         </h3>
         <ul>
           <li>
             Create HTTP server
           </li>
           <li>
-            Handle data storage
+            Handle local data storage
+          </li>
+          <li>
+            Handle messaging to remote instances (optional)
           </li>
           <li>
             Handle user configuration
           </li>
           <li>
-            Distribute application
+            Distribute the application
           </li>
         </ul>
       </article>
 
       <article>
         <h3>
-          Handling data storage
+          Creating an HTTP server
+        </h3>
+        <ul>
+          <li>
+            Express framework is easiest option
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Local data storage
         </h3>
         <ul>
           <li>Browser:
@@ -495,6 +546,41 @@ $ npm publish</pre>
               </li>
             </ul>
           </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Messaging to remote instances
+        </h3>
+        <ul>
+          <li>Browser:
+            <ul>
+              <li>
+                WebRTC
+              </li>
+            </ul>
+          </li>
+
+          <li>Node:
+            <ul>
+              <li>
+                node-dirty
+              </li>
+              <li>
+                sqlite
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Rapid development
+        </h3>
+        <ul>
+          <li>Deployd</li>
         </ul>
       </article>
 
@@ -696,6 +782,21 @@ $ npm publish</pre>
         </section>
       </article>
 
+      <article>
+        <h3>
+          Standalone executables
+        </h3>
+        <ul>
+          <li>
+            Standalone executables are possible!
+          </li>
+        </ul>
+        </ul>
+
+        <section>
+<pre>/path/to/node-webkit my_application.nw</pre>
+        </section>
+      </article>
 
 <!--
       <article class='smaller'>
