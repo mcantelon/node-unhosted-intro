@@ -176,6 +176,27 @@
 
       <article>
         <h1>
+          Unhosted networked applications
+        </h1>
+      </article>
+
+      <article>
+        <h3>Conventional hosted application</h3>
+        <img class='centered' src='images/centralized_diagram.png' style='margin-top: 1em'>
+      </article>
+
+      <article>
+        <h3>Federated hosted application</h3>
+        <img class='centered' src='images/decentralized_diagram.png' style='margin-top: 1em'>
+      </article>
+
+      <article>
+        <h3>Federated unhosted application</h3>
+        <img class='centered' src='images/federated_diagram.png' style='margin-top: 1em'>
+      </article>
+
+      <article>
+        <h1>
           Why create unhosted apps?
         </h1>
       </article>
@@ -198,9 +219,14 @@
             No hosting costs
           </li>
           <li>
-            Data privacy
+            <strong>Data privacy</strong>
           </li>
         </ul>
+      </article>
+
+      <article>
+        <h3>Common privacy issue</h3>
+        <img class='centered' src='images/centralized_tapped_diagram.png' style='margin-top: 1em'>
       </article>
 
       <article>
@@ -208,8 +234,19 @@
       </article>
 
       <article>
+        <h3>Encryption FTW</h3>
+        <img class='centered' src='images/federated_plus_encryption.png' style='margin-top: 2em'>
+      </article>
+
+      <article>
+        <h1>
+          Unhosted web apps vs native apps
+        </h1>
+      </article>
+
+      <article>
         <h3>
-          Advantages of unhosted apps over native apps
+          Advantages of unhosted apps
         </h3>
         <ul>
           <li>
@@ -227,12 +264,12 @@
 
       <article>
         <h3>
-          Aren't non-native apps jarring to users?
+          Potential disadvantages
         </h3>
         <ul>
-          <li>Non-native apps can be jarring, yes</li>
+          <li>Non-native app UIs can be jarring</li>
           <li>
-            As apps move to the web, however, the web is increasingly perceived as "normal", if not native
+            As apps move to the web, however, the web is increasingly perceived as "normal"
           </li>
           <!-- <li>
             Operating systems are incorporating HTML5 for native applications: Windows 8, Ubuntu, Chrome OS,
@@ -501,7 +538,7 @@ $ npm publish</pre>
             Handle local data storage
           </li>
           <li>
-            Handle messaging to remote instances (optional)
+            Handle remote messaging/syncing (optional)
           </li>
           <li>
             Handle user configuration
@@ -520,6 +557,15 @@ $ npm publish</pre>
           <li>
             Express framework is easiest option
           </li>
+          <li>
+            Express gives you:
+            <ul>
+              <li>Routing</li>
+              <li>Static file handling</li>
+              <li>Template engine integration</li>
+              <li>Lots of community</li>
+            </ul>
+          </li>
         </ul>
       </article>
 
@@ -536,39 +582,55 @@ $ npm publish</pre>
             </ul>
           </li>
 
-          <li>Node:
+          <li>File-based:
             <ul>
               <li>
-                node-dirty
+                node-dirty 
               </li>
               <li>
                 sqlite
               </li>
+              <li>
+                PouchDB
+              </li>
+              <li>
+                levelup
+              </li>
             </ul>
+          </li>
+
+          <li>
+            Traditional databases (MySQL, etc.) require the
+            end-user to install additional software
           </li>
         </ul>
       </article>
 
       <article>
         <h3>
-          Messaging to remote instances
+          Remote messaging/syncing
         </h3>
         <ul>
-          <li>Browser:
+          <li>Messaging:
             <ul>
               <li>
-                WebRTC
+                secure-peer
               </li>
             </ul>
           </li>
 
-          <li>Node:
+          <li>Syncing:
             <ul>
               <li>
-                node-dirty
+                PouchDB to CouchDB
               </li>
+            </ul>
+          </li>
+
+          <li>Browser peer-to-peer:
+            <ul>
               <li>
-                sqlite
+                WebRTC
               </li>
             </ul>
           </li>
