@@ -644,12 +644,30 @@ $ npm publish</pre>
       </article>
 
       <article>
-        <h3>
-          Rapid development
-        </h3>
-        <ul>
-          <li>Deployd</li>
-        </ul>
+        <h3>Distribution methods</h3>
+
+        <table>
+          <tr>
+            <th>
+              Audience
+            <th>
+              Method
+          <tr>
+            <td>
+              Non-devs
+            <td>
+              Standalone application
+          <tr>
+            <td>
+              Non-Node devs
+            <td>
+              Tarball
+          <tr>
+            <td>
+              Node devs
+            <td>
+              npm
+        </table>
       </article>
 
       <article>
@@ -658,14 +676,22 @@ $ npm publish</pre>
         </h3>
         <ul>
           <li>
-            Installation script
-          </li>
-          <li>
-            "Tarball"
+            Tarball or public git repository
           </li>
           <li>
             npm
+            <ul>
+              <li>Install globally, start app with a command</li>
+              <li>Specified or random TCP/IP port</li>
+              <li>Automatically open a web browser</li>
+            </ul>
           </li>
+          <li>
+            Standalone installation
+            <ul>
+              <li>Windows: node.exe and Inno Setup</li>
+              <li>Linux and OS X: nexe</li>
+            </ul>
         </ul>
       </article>
 
