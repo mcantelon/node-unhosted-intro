@@ -172,7 +172,6 @@
           <li>App instances share information</li>
           <li>Conceptually peer-to-peer</li>
           <li>Message passing between app instances</li> 
-          <li>Ideally messages are encrypted</li>
         </ul>
       </article>
 
@@ -236,36 +235,34 @@
       </article>
 
       <article>
-        <h3>Encryption FTW</h3>
-        <img class='centered' src='images/federated_plus_encryption.png' style='margin-top: 2em'>
-      </article>
-
-      <article>
         <img class='centered' src='images/encrypt_all.jpg'>
       </article>
 
       <article>
+        <h3>Decentralize and encrypt</h3>
+        <img class='centered' src='images/federated_plus_encryption.png' style='margin-top: 2em'>
+      </article>
+
+      <article>
         <h1>
-          Unhosted web apps vs native apps
+          Why not make native apps?
         </h1>
       </article>
 
       <article>
         <h3>
-          Advantages of unhosted apps
+          Web app advantages
         </h3>
         <ul>
           <li>
-            Cross-platform
-          </li>
-          <li>
-            Easier to port to a hosted application if
-            needed
+            Cross-platform is easy
           </li>
           <li>
             Re-use web development knowledge
           </li>
         </ul>
+
+        <img class='centered' src='images/cross_platform.gif' style='margin-top: 2em'>
       </article>
 
       <article>
@@ -292,7 +289,7 @@
 
       <article>
         <h3>
-          Browsers have limitations
+          Why not browser-only?
         </h3>
         <ul>
           <li>
@@ -342,43 +339,12 @@
             Cross-platform
           </li>
           <li>
-            Easy to install
-          </li>
-          <li>
             Takes little disk space
           </li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>
-          Example Node app: Finance
-        </h3>
-        <ul>
           <li>
-            Minimalist, so good to learn from
-          </li>
-          <li>
-            Stores data locally, using files
-          </li>
-          <li>
-            Leverages the Express web framework
-          </li>
-          <li>
-            <a href='https://github.com/visionmedia/finance'>https://github.com/visionmedia/finance</a>
+            Easy to install
           </li>
         </ul>
-      </article>
-
-      <article>
-        <h3>Example Node app: Finance</h3>
-        <img class='centered' src='images/googlerefine.png'>
-      </article>
-
-       <article>
-        <h1>
-          So what does programming in Node look like?
-        </h1>
       </article>
 
       <article>
@@ -399,6 +365,12 @@
             Linux is also straightforward
           </li>
         </ul>
+      </article>
+
+       <article>
+        <h1>
+          So what does programming in Node look like?
+        </h1>
       </article>
 
       <article>
@@ -471,6 +443,31 @@ http.createServer(function (request, response) {
 
       </article>
  
+      <article>
+        <h3>
+          Example Node app: Finance
+        </h3>
+        <ul>
+          <li>
+            Minimalist, so good to learn from
+          </li>
+          <li>
+            Stores data locally, using files
+          </li>
+          <li>
+            Leverages the Express web framework
+          </li>
+          <li>
+            <a href='https://github.com/visionmedia/finance'>https://github.com/visionmedia/finance</a>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Example Node app: Finance</h3>
+        <img class='centered' src='images/googlerefine.png'>
+      </article>
+
        <article>
         <h1>
           Extending Node using modules
@@ -550,7 +547,7 @@ $ npm publish</pre>
             Handle user configuration
           </li>
           <li>
-            Distribute the application
+            Package/distribute the application
           </li>
         </ul>
       </article>
@@ -617,6 +614,14 @@ $ npm publish</pre>
           Remote messaging/syncing
         </h3>
         <ul>
+          <li>Browser peer-to-peer:
+            <ul>
+              <li>
+                WebRTC
+              </li>
+            </ul>
+          </li>
+
           <li>Messaging:
             <ul>
               <li>
@@ -632,19 +637,11 @@ $ npm publish</pre>
               </li>
             </ul>
           </li>
-
-          <li>Browser peer-to-peer:
-            <ul>
-              <li>
-                WebRTC
-              </li>
-            </ul>
-          </li>
         </ul>
       </article>
 
       <article>
-        <h3>Distribution methods</h3>
+        <h3>Packaging and distribution</h3>
 
         <table>
           <tr>
@@ -672,26 +669,65 @@ $ npm publish</pre>
 
       <article>
         <h3>
-          Application distribution
+          Standalone packaging
         </h3>
         <ul>
           <li>
-            Tarball or public git repository
-          </li>
-          <li>
-            npm
+            Windows: Inno Setup (freeware)
             <ul>
-              <li>Install globally, start app with a command</li>
-              <li>Specified or random TCP/IP port</li>
-              <li>Automatically open a web browser</li>
+              <li>Makes an application installer</li>
+              <li>Easy to use</li>
+              <li>
+                A <code>.bat</code> file can be used to
+                start the app
+              </li>
             </ul>
           </li>
           <li>
-            Standalone installation
+            Windows: Advanced Batch To EXE Converter (freeware)
             <ul>
-              <li>Windows: node.exe and Inno Setup</li>
-              <li>Linux and OS X: nexe</li>
+              <li>Makes a single <code>.exe</code> file</li>
+              <li>A bit confusing to use</li>
+              <li>Limitation: can bundle files, but not folders</li>
             </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          nexe packaging
+        </h3>
+        <ul>
+          <li>
+            Linux and OS X
+            <ul>
+              <li>Makes an application installer</li>
+              <li>Easy to use</li>
+              <li>
+                A <code>.bat</code> file can be used to
+                start the app
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          npm distribution
+        </h3>
+        <ul>
+          <li>Apps should be installed globally</li>
+          <li>Each app should have a command-line start command</li>
+          <li>
+            If no TCP/IP port specified, find a free one
+            using <code>freeport</code> module
+          </li>
+          <li>
+            Automatically open app in a web browser
+            using <code>open</code> module
+          </li>
         </ul>
       </article>
 
@@ -708,10 +744,11 @@ $ npm publish</pre>
             discovery easier
           </li>
           <li>
-            Also makes running unhosted apps easier
+            Finds a free TCP/IP port and opens app in
+            a browser
           </li>
           <li>
-            Only two steps to installing and launching in a browser
+            Only two steps to installing and launching
           </li>
         </ul>
 
@@ -721,6 +758,57 @@ $ uam install uam-example
 $ uam run uam-example</pre>
         </section>
 
+      </article>
+
+      <article>
+        <h3>
+          User configuration
+        </h3>
+        <ul>
+          <li>
+            The <code>rc</code> module makes user configuration
+            easy
+          </li>
+          <li>
+            <code>rc</code> checks for config files, CLI options, and
+            environment variables
+          </li>
+          <li>
+            If you application name is "todo", for example, <code>rc</code>
+            will check for a <code>$HOME/.todorc</code> file, etc.
+          </li>
+          <li>
+            Configuration defaults can be specified, optionally replaced
+            by any user-specified configuration encountered
+          </li>
+          <li>
+            Configuration files can be <code>JSON</code> or <code>INI</code>
+            format
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          <code>rc</code> example
+        </h3>
+
+        <section style='margin-top: 1em'>
+          <p>Application logic:</p>
+<pre>var rc = require('rc');
+
+var conf = rc('myapp', {
+  //defaults go here.
+  port: 1337
+});
+
+console.log('Port: ' + conf.port);</pre>
+        </section>
+
+        <section>
+          <p><code>$HOME/.myapprc</code>:</p>
+<pre>port = 8000</pre>
+        </section>
       </article>
 
       <article>
