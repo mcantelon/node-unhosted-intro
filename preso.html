@@ -177,27 +177,6 @@
 
       <article>
         <h1>
-          Unhosted networked applications
-        </h1>
-      </article>
-
-      <article>
-        <h3>Conventional hosted application</h3>
-        <img class='centered' src='images/centralized_diagram.png' style='margin-top: 1em'>
-      </article>
-
-      <article>
-        <h3>Federated hosted application</h3>
-        <img class='centered' src='images/decentralized_diagram.png' style='margin-top: 1em'>
-      </article>
-
-      <article>
-        <h3>Federated unhosted application</h3>
-        <img class='centered' src='images/federated_diagram.png' style='margin-top: 1em'>
-      </article>
-
-      <article>
-        <h1>
           Why create unhosted apps?
         </h1>
       </article>
@@ -226,12 +205,22 @@
       </article>
 
       <article>
+        <h3>Conventional hosted app</h3>
+        <img class='centered' src='images/centralized_diagram.png' style='margin-top: 1em'>
+      </article>
+
+      <article>
         <h3>Common privacy issue</h3>
         <img class='centered' src='images/centralized_tapped_diagram.png' style='margin-top: 1em'>
       </article>
 
       <article>
         <img class='centered' src='images/nsa_cat.jpg'>
+      </article>
+
+      <article>
+        <h3>Federated unhosted application</h3>
+        <img class='centered' src='images/federated_diagram.png' style='margin-top: 1em'>
       </article>
 
       <article>
@@ -245,7 +234,7 @@
 
       <article>
         <h1>
-          Why not make native apps?
+          Web apps vs native apps
         </h1>
       </article>
 
@@ -283,7 +272,7 @@
 
       <article>
         <h1>
-          Using Node to develop unhosted apps
+          Why use Node?
         </h1>
       </article>
 
@@ -496,6 +485,13 @@ http.createServer(function (request, response) {
 
       <article>
         <h3>
+          Search npm via npmjs.org
+        </h3>
+      <img class='centered' style='margin-top: 50px' src='images/searchnpm.png'>
+      </article>
+
+      <article>
+        <h3>
           Installing and publishing modules with NPM
         </h3>
 
@@ -517,13 +513,6 @@ $ npm publish</pre>
       </article>
 
       <article>
-        <h3>
-          Search npm via npmjs.org
-        </h3>
-      <img class='centered' style='margin-top: 50px' src='images/searchnpm.png'>
-      </article>
-
-      <article>
         <h1>
           Creating an unhosted app using Node
         </h1>
@@ -541,10 +530,10 @@ $ npm publish</pre>
             Handle local data storage
           </li>
           <li>
-            Handle remote messaging/syncing (optional)
+            Handle remote messaging (optional)
           </li>
           <li>
-            Handle user configuration
+            Handle application configuration
           </li>
           <li>
             Package/distribute the application
@@ -566,10 +555,29 @@ $ npm publish</pre>
               <li>Routing</li>
               <li>Static file handling</li>
               <li>Template engine integration</li>
+              <li>Lots of add-ons</li>
               <li>Lots of community</li>
             </ul>
           </li>
         </ul>
+      </article>
+
+      <article>
+        <h3>
+          Express code example
+        </h3>
+
+        <section>
+<pre>var express = require('express');
+var app = express();
+
+app.get('/hello', function(req, res){
+  res.send('Hello World');
+});
+
+app.listen(3000);
+console.log('Listening on port 3000');</pre>
+        </section>
       </article>
 
       <article>
@@ -588,30 +596,26 @@ $ npm publish</pre>
           <li>File-based:
             <ul>
               <li>
-                node-dirty 
+                TingoDB (MongoDB compatible interface)
               </li>
               <li>
-                sqlite
+                dirty 
               </li>
               <li>
-                PouchDB
-              </li>
-              <li>
-                levelup
+                nstore
               </li>
             </ul>
           </li>
 
           <li>
-            Traditional databases (MySQL, etc.) require the
-            end-user to install additional software
+            Keep it simple: no bindings, no database servers
           </li>
         </ul>
       </article>
 
       <article>
         <h3>
-          Remote messaging/syncing
+          Remote messaging
         </h3>
         <ul>
           <li>Browser peer-to-peer:
@@ -622,23 +626,67 @@ $ npm publish</pre>
             </ul>
           </li>
 
-          <li>Messaging:
+          <li>Encrypted messaging:
             <ul>
               <li>
                 secure-peer
               </li>
             </ul>
           </li>
+        </ul>
+      </article>
 
-          <li>Syncing:
-            <ul>
-              <li>
-                PouchDB to CouchDB
-              </li>
-            </ul>
+      <article>
+        <h3>
+          Application configuration
+        </h3>
+        <ul>
+          <li>
+            The <code>rc</code> module makes app configuration
+            easy
+          </li>
+          <li>
+            <code>rc</code> checks for config files, CLI options, and
+            environment variables
+          </li>
+          <li>
+            If you application name is "todo", for example, <code>rc</code>
+            will check for a <code>$HOME/.todorc</code> file, etc.
+          </li>
+          <li>
+            Configuration defaults can be specified, optionally replaced
+            by any user-specified configuration encountered
+          </li>
+          <li>
+            Configuration files can be <code>JSON</code> or <code>INI</code>
+            format
           </li>
         </ul>
       </article>
+
+      <article>
+        <h3>
+          <code>rc</code> example
+        </h3>
+
+        <section style='margin-top: 1em'>
+          <p>Application logic:</p>
+<pre>var rc = require('rc');
+
+var conf = rc('myapp', {
+  //defaults go here.
+  port: 1337
+});
+
+console.log('Port: ' + conf.port);</pre>
+        </section>
+
+        <section>
+          <p><code>$HOME/.myapprc</code>:</p>
+<pre>port = 8000</pre>
+        </section>
+      </article>
+
 
       <article>
         <h3>Packaging and distribution</h3>
@@ -761,57 +809,6 @@ $ uam run uam-example</pre>
       </article>
 
       <article>
-        <h3>
-          User configuration
-        </h3>
-        <ul>
-          <li>
-            The <code>rc</code> module makes user configuration
-            easy
-          </li>
-          <li>
-            <code>rc</code> checks for config files, CLI options, and
-            environment variables
-          </li>
-          <li>
-            If you application name is "todo", for example, <code>rc</code>
-            will check for a <code>$HOME/.todorc</code> file, etc.
-          </li>
-          <li>
-            Configuration defaults can be specified, optionally replaced
-            by any user-specified configuration encountered
-          </li>
-          <li>
-            Configuration files can be <code>JSON</code> or <code>INI</code>
-            format
-          </li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>
-          <code>rc</code> example
-        </h3>
-
-        <section style='margin-top: 1em'>
-          <p>Application logic:</p>
-<pre>var rc = require('rc');
-
-var conf = rc('myapp', {
-  //defaults go here.
-  port: 1337
-});
-
-console.log('Port: ' + conf.port);</pre>
-        </section>
-
-        <section>
-          <p><code>$HOME/.myapprc</code>:</p>
-<pre>port = 8000</pre>
-        </section>
-      </article>
-
-      <article>
         <h1>
           Making Node apps more "native"
         </h1>
@@ -831,13 +828,6 @@ console.log('Port: ' + conf.port);</pre>
             Originally created by Intel
           </li>
         </ul>
-      </article>
-
-      <article>
-        <h3>
-          Example: Sputnik RSS Reader
-        </h3>
-        <img class='centered' src='images/sputnik.jpg' style='margin-top: 2em' />
       </article>
 
       <article>
@@ -868,6 +858,13 @@ console.log('Port: ' + conf.port);</pre>
 
       <article>
         <h3>
+          Example: Sputnik RSS Reader
+        </h3>
+        <img class='centered' src='images/sputnik.jpg' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
           Creating node-webkit applications
         </h3>
         <ul>
@@ -878,11 +875,11 @@ console.log('Port: ' + conf.port);</pre>
         <img class="centered" src='images/node-webkit-app-dir.png' />
         <ul>
           <li>
-            Use npm to install needed modules in <code>node_modules</code>
-            subdirectory
+            Put <code>package.json</code> "manifest" in directory
           </li>
           <li>
-            Put <code>package.json</code> "manifest" in directory
+            Use npm to install needed modules in <code>node_modules</code>
+            subdirectory
           </li>
         </ul>
       </article>
