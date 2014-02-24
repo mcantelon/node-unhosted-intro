@@ -68,7 +68,7 @@
             for Artefactual Systems
           </li>
           <li>
-            Thanks to Apex Systems and the Devnexus organizers
+            Thanks to <strong>Apex Systems</strong> and the <strong>DevNexus</strong> organizers
           </li>
         </ul>
       </article>
@@ -310,6 +310,9 @@
           <li>
             Client-side code can be re-used when appropriate
           </li>
+          <li>
+            TCP/IP-level (WebSockets, etc.)
+          </li>
         </ul>
       </article>
 
@@ -547,7 +550,7 @@ $ npm publish</pre>
               <li>Routing</li>
               <li>Static file handling</li>
               <li>Template engine integration</li>
-              <li>Lots of add-ons</li>
+              <li>Lots of add-ons, middleware</li>
               <li>Lots of community</li>
             </ul>
           </li>
@@ -693,12 +696,12 @@ console.log('Port: ' + conf.port);</pre>
             <td>
               Non-devs
             <td>
-              Standalone application
+              Installer
           <tr>
             <td>
               Non-Node devs
             <td>
-              Tarball
+              Executable
           <tr>
             <td>
               Node devs
@@ -709,11 +712,11 @@ console.log('Port: ' + conf.port);</pre>
 
       <article>
         <h3>
-          Standalone packaging
+          Creating an installer
         </h3>
         <ul>
           <li>
-            Windows: Inno Setup (freeware)
+            Windows: Inno Setup
             <ul>
               <li>Makes an application installer</li>
               <li>Easy to use</li>
@@ -724,11 +727,15 @@ console.log('Port: ' + conf.port);</pre>
             </ul>
           </li>
           <li>
-            Windows: Advanced Batch To EXE Converter (freeware)
+            OS X: PackageMaker
             <ul>
-              <li>Makes a single <code>.exe</code> file</li>
-              <li>A bit confusing to use</li>
-              <li>Limitation: can bundle files, but not folders</li>
+              <li>Part of Mac developer tools
+              <li>Makes an application installer</li>
+              <li>Easy to use</li>
+              <li>
+                A <code>.bat</code> file can be used to
+                start the app
+              </li>
             </ul>
           </li>
         </ul>
@@ -736,18 +743,70 @@ console.log('Port: ' + conf.port);</pre>
 
       <article>
         <h3>
-          nexe packaging
+          Inno Setup
+        </h3>
+        <img class='centered' src='images/inno_wisard.png' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          Inno Setup
+        </h3>
+        <img class='centered' src='images/inno_3_files.png' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          Inno Setup
+        </h3>
+        <img class='centered' src='images/inno_4_compile.png' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          PackageMaker
+        </h3>
+        <img class='centered' src='images/mac_install_setup.png' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          PackageMaker
+        </h3>
+        <img class='centered' src='images/mac_install_config.png' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          PackageMaker
+        </h3>
+        <img class='centered' src='images/mac_install_save.png' style='margin-top: 2em' />
+      </article>
+
+      <article>
+        <h3>
+          Creating an executable
         </h3>
         <ul>
           <li>
-            Linux and OS X
+            Linux and OS X: nexe
             <ul>
-              <li>Makes an application installer</li>
-              <li>Easy to use</li>
               <li>
-                A <code>.bat</code> file can be used to
-                start the app
+                Bundles Node app into single executable
               </li>
+              <li>
+                Bundles dependencies, except native ones
+              </li>
+              <li>
+                <pre>nexe -i myapp/index.js -o bin</pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Windows: Advanced Batch To EXE Converter
+            <ul>
+              <li>Makes a single <code>.exe</code> file</li>
+              <li>Bundles files, but not folders</li>
             </ul>
           </li>
         </ul>
@@ -883,12 +942,12 @@ $ uam run uam-example</pre>
         <section>
         <pre>{
   "name": "hello",
-  "main": "index.html",
   "window": {
     "toolbar": false,
     "width": 800,
     "height": 600
-  }
+  },
+  "main": "index.html"
 }</pre>
         </section>
         <ul>
