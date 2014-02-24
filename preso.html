@@ -169,8 +169,7 @@
         <h3>Access network if needed</h3>
         <img class='centered' src='images/federated.png' style="margin-top:2em" /> 
         <ul>
-          <li>App instances share information</li>
-          <li>Conceptually peer-to-peer</li>
+          <li>Web apis</li>
           <li>Message passing between app instances</li> 
         </ul>
       </article>
@@ -212,10 +211,6 @@
       <article>
         <h3>Common privacy issue</h3>
         <img class='centered' src='images/centralized_tapped_diagram.png' style='margin-top: 1em'>
-      </article>
-
-      <article>
-        <img class='centered' src='images/nsa_cat.jpg'>
       </article>
 
       <article>
@@ -432,31 +427,6 @@ http.createServer(function (request, response) {
 
       </article>
  
-      <article>
-        <h3>
-          Example Node app: Finance
-        </h3>
-        <ul>
-          <li>
-            Minimalist, so good to learn from
-          </li>
-          <li>
-            Stores data locally, using files
-          </li>
-          <li>
-            Leverages the Express web framework
-          </li>
-          <li>
-            <a href='https://github.com/visionmedia/finance'>https://github.com/visionmedia/finance</a>
-          </li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>Example Node app: Finance</h3>
-        <img class='centered' src='images/googlerefine.png'>
-      </article>
-
        <article>
         <h1>
           Extending Node using modules
@@ -464,21 +434,43 @@ http.createServer(function (request, response) {
       </article>
 
       <article>
+        <h3>
+          Node modules
+        </h3>
+
+        <ul>
+          <li>Modules are easy to create</li>
+          <li>Manifests are simple JSON</li>
+        </ul>
+
+        <section>
+        <pre>{
+  "name": "myapp",
+  "version": "0.1.1",
+  "description": "My application",
+  "dependencies" : {"express" : "2.5.x"},
+  "engine": {"node": ">=0.8"}
+}</pre>
+        </section>
+
+      </article>
+ 
+      <article>
        <h3>
           The Node package manager is super useful
         </h3>
         <ul>
           <li>
-            NPM comes bundled with Windows and Mac OS X standalone installers
+            Bundled with Node installers
           </li>
           <li>
-            Can install modules into an application or make them available globally
+            Global or local installs
           </li>
           <li>
-            Application-specific installation of modules allows you to install specific versions
+            Global install great for installing CLI tools
           </li>
           <li>
-            Global install is useful for installing command-line tools written using Node
+            Install specific versions
           </li>
         </ul>
       </article>
