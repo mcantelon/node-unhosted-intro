@@ -531,7 +531,7 @@ $ npm publish</pre>
             Express gives you:
             <ul>
               <li>Routing</li>
-              <li>Static file handling</li>
+              <li>Static file serving</li>
               <li>Template engine integration</li>
               <li>Lots of add-ons, middleware</li>
               <li>Lots of community</li>
@@ -562,6 +562,22 @@ app.listen(3000);
 
 console.log('Listening on port 3000');</pre>
         </section>
+      </article>
+
+      <article>
+        <h3>
+          Making your HTTP server easy to access
+        </h3>
+        <ul>
+          <li>
+            If no TCP/IP port specified, find a free one
+            using <code>freeport</code> module
+          </li>
+          <li>
+            Automatically open app in a web browser
+            using <code>open</code> module
+          </li>
+        </ul>
       </article>
 
       <article>
@@ -610,10 +626,19 @@ console.log('Listening on port 3000');</pre>
             </ul>
           </li>
 
+          <li>
+            HTTP requests:
+            <ul>
+              <li>
+                <code>request</code>
+              </li>
+            </ul>
+          </li>
+
           <li>Encrypted messaging:
             <ul>
               <li>
-                secure-peer
+                <code>secure-peer</code>
               </li>
             </ul>
           </li>
@@ -805,14 +830,6 @@ console.log('Port: ' + conf.port);</pre>
         <ul>
           <li>Apps should be installed globally</li>
           <li>Each app should have a command-line start command</li>
-          <li>
-            If no TCP/IP port specified, find a free one
-            using <code>freeport</code> module
-          </li>
-          <li>
-            Automatically open app in a web browser
-            using <code>open</code> module
-          </li>
         </ul>
       </article>
 
