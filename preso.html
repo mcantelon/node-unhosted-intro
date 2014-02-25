@@ -173,9 +173,6 @@
             Full access to workstation data and peripherals
           </li>
           <li>
-            Minimize dependence on network
-          </li>
-          <li>
             No hosting costs
           </li>
           <li>
@@ -514,7 +511,7 @@ $ npm publish</pre>
             Handle remote messaging (optional)
           </li>
           <li>
-            Handle application configuration
+            Handle application configuration (optional)
           </li>
           <li>
             Package/distribute the application
@@ -552,11 +549,17 @@ $ npm publish</pre>
 <pre>var express = require('express');
 var app = express();
 
+// serve static files
+app.use(express.static(__dirname + '/public'));
+
+// respond to HTTP GET /hello
 app.get('/hello', function(req, res){
   res.send('Hello World');
 });
 
+// start server
 app.listen(3000);
+
 console.log('Listening on port 3000');</pre>
         </section>
       </article>
@@ -680,20 +683,49 @@ console.log('Port: ' + conf.port);</pre>
               Method
           <tr>
             <td>
-              Non-devs
-            <td>
-              Installer
-          <tr>
-            <td>
               Non-Node devs
             <td>
               Executable
+          <tr>
+            <td>
+              Non-devs
+            <td>
+              Installer
           <tr>
             <td>
               Node devs
             <td>
               npm
         </table>
+      </article>
+
+      <article>
+        <h3>
+          Creating an executable
+        </h3>
+        <ul>
+          <li>
+            Linux and OS X: nexe
+            <ul>
+              <li>
+                Bundles Node app into single executable
+              </li>
+              <li>
+                Bundles dependencies, except native ones
+              </li>
+              <li>
+                <pre>nexe -i myapp/index.js -o myapp</pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Windows: Advanced Batch To EXE Converter
+            <ul>
+              <li>Makes a single <code>.exe</code> file</li>
+              <li>Bundles files, but not folders</li>
+            </ul>
+          </li>
+        </ul>
       </article>
 
       <article>
@@ -716,11 +748,8 @@ console.log('Port: ' + conf.port);</pre>
             OS X: PackageMaker
             <ul>
               <li>Part of Mac developer tools
-              <li>Makes an application installer</li>
-              <li>Easy to use</li>
               <li>
-                A <code>.bat</code> file can be used to
-                start the app
+                  Found in <code>/Developer/Applications/Utilities</code>
               </li>
             </ul>
           </li>
@@ -767,35 +796,6 @@ console.log('Port: ' + conf.port);</pre>
           PackageMaker
         </h3>
         <img class='centered' src='images/mac_install_save.png' style='margin-top: 2em' />
-      </article>
-
-      <article>
-        <h3>
-          Creating an executable
-        </h3>
-        <ul>
-          <li>
-            Linux and OS X: nexe
-            <ul>
-              <li>
-                Bundles Node app into single executable
-              </li>
-              <li>
-                Bundles dependencies, except native ones
-              </li>
-              <li>
-                <pre>nexe -i myapp/index.js -o bin</pre>
-              </li>
-            </ul>
-          </li>
-          <li>
-            Windows: Advanced Batch To EXE Converter
-            <ul>
-              <li>Makes a single <code>.exe</code> file</li>
-              <li>Bundles files, but not folders</li>
-            </ul>
-          </li>
-        </ul>
       </article>
 
       <article>
@@ -912,11 +912,11 @@ $ uam run uam-example</pre>
         <img class="centered" src='images/node-webkit-app-dir.png' />
         <ul>
           <li>
-            Put <code>package.json</code> "manifest" in directory
-          </li>
-          <li>
             Use npm to install needed modules in <code>node_modules</code>
             subdirectory
+          </li>
+          <li>
+            Put <code>package.json</code> "manifest" in directory
           </li>
         </ul>
       </article>
