@@ -829,8 +829,21 @@ console.log('Port: ' + conf.port);</pre>
         </h3>
         <ul>
           <li>Apps should be installed globally</li>
-          <li>Each app should have a command-line start command</li>
+          <li>
+            Each app should define a command-line start command
+            in its <code>package.json</code> file
+          </li>
         </ul>
+
+        <section>
+        <pre>{
+  ...
+  "bin" : {
+    "startapp" : "./startapp.js"
+  }
+}</pre>
+        </section>
+
       </article>
 
       <article>
